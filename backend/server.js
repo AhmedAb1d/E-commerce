@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const productRoutes = require('./Routes/productRoutes');
-
+const userRoutes = require('./Routes/userRoutes')
 const app = express();
 const port = 3200;
 
@@ -18,7 +18,8 @@ mongoose
 app.use(bodyParser.json())
 
 app.use('/products',productRoutes);
+app.use('/users',userRoutes);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 });
