@@ -15,13 +15,13 @@ jobs:
         with:
           payload: |
             {
-              "text": "GitHub repository was updated\n You Can check the commited files on: ${{ github.event.head_commit.url }}",
+              "text": "GitHub repository was updated!!!\n You can check for the new commited files on: ${{ github.event.head_commit.url }}",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "GitHub repository was updated\n You Can check the commited files on: ${{ github.event.head_commit.url }}"
+                    "text": "GitHub repository was updated!!!\n You can check for the new commited files on: ${{ github.event.head_commit.url }}"
                   }
                 }
               ]
