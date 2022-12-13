@@ -1,8 +1,8 @@
-const User = require("../Models/userSchema");
+const User = require("../models/userSchema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-const SECRET = require('../Middlewares/secret');
+const SECRET = require('../middlewares/secret');
 
 exports.signup = (req, res) => {
   const user = new User({

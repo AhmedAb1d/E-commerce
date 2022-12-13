@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const SECRET = require('../Middlewares/secret');
+const SECRET = require('../middlewares/secret');
 
 module.exports = (req, res, next) => {
   try {

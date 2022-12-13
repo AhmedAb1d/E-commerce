@@ -1,8 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
-const productRoutes = require('./Routes/productRoutes');
-const userRoutes = require('./Routes/userRoutes')
+const userRoutes = require('./routes/userRoutes')
 const app = express();
 const port = 3200;
 
@@ -17,7 +16,6 @@ mongoose
 
 app.use(bodyParser.json())
 
-app.use('/products',productRoutes);
 app.use('/users',userRoutes);
 
 app.listen(port, () => {
