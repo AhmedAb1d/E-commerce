@@ -1,8 +1,6 @@
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 jobs:
   notifyChannel:
     runs-on: ubuntu-latest
@@ -15,13 +13,13 @@ jobs:
         with:
           payload: |
             {
-              "text": "GitHub repository was updated!!!\n You can check for the new commited files on: ${{ github.event.head_commit.url }}",
+              "text": "GitHub repository has just been updated!!!\n You can check for the new commited files on: ${{ github.event.head_commit.url }}",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "GitHub repository was updated!!!\n You can check for the new commited files on: ${{ github.event.head_commit.url }}"
+                    "text": "GitHub repository has just been updated!!!\n You can check for the new commited files on: ${{ github.event.head_commit.url }}"
                   }
                 }
               ]
