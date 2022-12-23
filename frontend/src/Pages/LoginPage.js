@@ -41,7 +41,7 @@ function LoginPage() {
       .post("http://localhost:3200/users/login", info)
       .then((response) => {
         if (response.status === 200) {
-          navigate("/signup")
+          navigate("/productsCatalog")
         }
       })
       .catch((error) => {
