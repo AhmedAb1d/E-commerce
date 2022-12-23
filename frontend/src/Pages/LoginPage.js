@@ -11,10 +11,6 @@ import image from "../Utils/login_image.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import InputAdornment from "@mui/material/InputAdornment";
-import PersonIcon from "@mui/icons-material/Person";
-import LockIcon from "@mui/icons-material/Lock";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -73,13 +69,6 @@ function LoginPage() {
             onChange={handleName}
             label='Your Name'
             variant='standard'
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <PersonIcon />
-                </InputAdornment>
-              ),
-            }}
           />
           <br />
           <TextField
@@ -87,18 +76,6 @@ function LoginPage() {
             label='Password'
             variant='standard'
             onChange={handlePassword}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <LockIcon />
-                </InputAdornment>
-              ),
-              endAdornment: (
-                <InputAdornment position='end'>
-                  <VisibilityOffIcon />
-                </InputAdornment>
-              ),
-            }}
           />
           <br />
           <FormControlLabel control={<Checkbox />} label='Remember me' />
