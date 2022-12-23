@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 
@@ -16,7 +17,9 @@ mongoose
     console.error(error);
   });
 
-app.use(bodyParser.json())
+app.use(cors())
+
+app.use(bodyParser.json());
 
 app.use('/users',userRoutes);
 app.use('/products',productRoutes);

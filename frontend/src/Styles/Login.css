@@ -1,0 +1,50 @@
+.box{
+    margin: 20px auto;
+    margin-top:7%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    width: 70%;
+    display: flex
+}
+
+.image{
+    width: 400px;
+    height: 400px;
+}
+
+.child{
+    margin: 2%;
+    padding : 2%;
+    flex: 1
+}
+
+.page{
+    background-color: #F5F5F5;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    margin-bottom:20%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button{
+    background-color: #258AFE;
+    position:absolute;
+    top:40px;   
+}
+
+.not_found{
+    width: 50%;
+    height: 50%;
+    margin: 7% auto;
+    margin-left: 24%;
+}
