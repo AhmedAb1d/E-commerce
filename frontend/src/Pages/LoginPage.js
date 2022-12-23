@@ -3,12 +3,14 @@ import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 import FormControlLabel from "@mui/material/FormControlLabel";
 import "../Styles/Login.css";
 import image from "../Utils/login_image.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import InputAdornment from "@mui/material/InputAdornment";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
@@ -17,6 +19,9 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = React.useState(false);
+
+  const navigate = useNavigate();
 
   const handleName = (event) => {
     setEmail(event.target.value);
@@ -35,15 +40,25 @@ function LoginPage() {
     axios
       .post("http://localhost:3200/users/login", info)
       .then((response) => {
-        console.log(response.data);
+        if (response.status === 200) {
+          navigate("/signup")
+        }
       })
       .catch((error) => {
         console.error(error.response.data.error);
+        console.log('alert');
+          setOpen(true);
       });
   };
 
+
   return (
     <div className='page'>
+      <Snackbar open={open} autoHideDuration={4000} >
+        <Alert severity="error" sx={{ width: '100%'}}>
+          Check Your Credentials
+        </Alert>
+      </Snackbar>
       <div className='box'>
         <div className='child'>
           <img src={image} alt='login' className='image' />
@@ -59,8 +74,8 @@ function LoginPage() {
             label='Your Name'
             variant='standard'
             InputProps={{
-                startAdornment: (
-                    <InputAdornment position='start'>
+              startAdornment: (
+                <InputAdornment position='start'>
                   <PersonIcon />
                 </InputAdornment>
               ),
