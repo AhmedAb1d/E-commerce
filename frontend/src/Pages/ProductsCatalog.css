@@ -153,3 +153,7 @@
 .under-card{
   margin: -10px 0px 0px 0px;
 }
+
+.image{
+  object-fit: cover;
+}

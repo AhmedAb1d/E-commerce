@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@fontsource/montserrat";
 import '@fortawesome/fontawesome-free/css/all.css';
+import ProductsCatalog from './Pages/ProductsCatalog';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +22,7 @@ root.render(
           <Route path='/login' element={<LoginPage/>} />
           <Route path='/signup' element={<SignUpPage/>} />
           <Route path='*' element={<LoginPage/>} />
+          <Route path='/productsCatalog' element={<ProductsCatalog/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -2,6 +2,7 @@ import './ProductsCatalog.css';
 import React, { Component } from 'react'
 import Slider from "react-slick";
 import Sliderer from "./Sliderer";
+import axios from "axios"
 
 /*class="slider-button" id="next-button" */
 function LeftNavButton(props) {
@@ -30,8 +31,8 @@ function RightNavButton(props) {
 
 class ProductsCatalog extends Component {
 
-    constructor(){
-        super();
+    constructor(props) {
+        super(props);
         this.settings = {
         nextArrow: <RightNavButton />,
         prevArrow: <LeftNavButton />,
@@ -43,6 +44,26 @@ class ProductsCatalog extends Component {
         slidesToScroll: 1,
         centerPadding : 0
         }
+        this.state = {
+            products: [],
+            style : {
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }
+        }
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:3200/products')
+        .then(response => {
+            console.log("response from axios"+response.status)
+            this.setState({products: response.data})
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        
     }
     
 
@@ -53,9 +74,12 @@ class ProductsCatalog extends Component {
     
 
   render() {
+    const { products} = this.state
+    
     return (
         
         <div>
+            
             <nav class="navbar">
             <div class="logo">Logo</div>
         
@@ -69,119 +93,27 @@ class ProductsCatalog extends Component {
                 <input class="search-input" type="text" placeholder="Search..."/>
                 <button class="search-button">Search</button>
             </div>
-            <FontAwesomeIcon icon="fa-regular fa-basket-shopping-simple" />
-            <FontAwesomeIcon icon="fa-solid fa-user" />
+            
             </nav>
             <div class="container styling">
                 <Slider {...this.settings}>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="product-card">
-                                        <img src="product1.jpg" alt="Product 1"/>
-                                    </div>
-                                    <div class="under-card">
-                                        <div class="description-product-catalog">Description of product 1</div>
-                                        <div class="price-product-catalog">350</div>
-                                    </div>
-                                </div>
+                    {
+                    products.length ?
+                    products.map(prd => 
+                    <div key={prd.id}>
+                        <div>
+                            <div class="product-card" style={{...this.state.style,backgroundImage: `url(${prd.imageUrl})`}}>
+                            </div>
+                            <div class="under-card">
+                                <div class="description-product-catalog">{prd.name}</div>
+                                <div class="price-product-catalog">{prd.price}</div>
+                            </div>
+                        </div>
+                                
+                    </div>):
+                    null
+                    }
+                                
 
 
                                     

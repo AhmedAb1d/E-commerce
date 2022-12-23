@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
+const userRoutes = require('./Routes/userRoutes');
+const productRoutes = require('./Routes/productRoutes');
 
 const app = express();
 const port = 3200;
