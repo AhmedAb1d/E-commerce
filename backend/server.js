@@ -8,13 +8,14 @@ const productRoutes = require('./routes/productRoutes');
 const app = express();
 const port = 3200;
 
+
 mongoose
-  .connect("mongodb://localhost:27017")
+  .connect("mongodb+srv://Ahmed:password1234@course.5asvuvx.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     console.log("connection successful");
   })
   .catch((error) => {
-    console.error(error);
+    console.log(error);
   });
 
 app.use(cors())
