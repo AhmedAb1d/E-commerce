@@ -16,17 +16,20 @@
 
   /* Style the logo */
   .logo {
-    margin-left: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: darkgrey;
+    width: 110px;
+    height: 90px;
+    background-image: url('../Utils/logo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   /* Style the nav links */
   .nav-links {
+
     display: flex;
     align-items: center;
-    margin: 0 28%;
+    margin: 0 13% 0 25%;
   }
 
   .nav-link {
@@ -64,6 +67,16 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+  }
+
+  .icons-right {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+
+  .icon-class{
+    padding: 0 18px 0 0px;
+    font-size: 26px;
   }
 
   
@@ -154,6 +167,3 @@
   margin: -10px 0px 0px 0px;
 }
 
-.image{
-  object-fit: cover;
-}

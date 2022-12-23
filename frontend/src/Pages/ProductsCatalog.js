@@ -2,7 +2,8 @@ import './ProductsCatalog.css';
 import React, { Component } from 'react'
 import Slider from "react-slick";
 import Sliderer from "./Sliderer";
-import axios from "axios"
+import axios from "axios";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 /*class="slider-button" id="next-button" */
 function LeftNavButton(props) {
@@ -81,7 +82,7 @@ class ProductsCatalog extends Component {
         <div>
             
             <nav class="navbar">
-            <div class="logo">Logo</div>
+            <div class="logo"></div>
         
             <div class="nav-links">
                 <a class="nav-link" href="/">Hot</a>
